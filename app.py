@@ -83,6 +83,11 @@ def contact():
 @app.route('/skills')
 def skills():
     return render_template('skills.html')
+from flask import send_from_directory
+
+@app.route('/static/uploads/<path:filename>')
+def uploaded_file(filename):
+    return send_from_directory(UPLOAD_FOLDER, filename)
 
 @app.route('/projects')
 def projects():
